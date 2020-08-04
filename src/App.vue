@@ -10,7 +10,7 @@
         <div class="alert alert-info mb-4">
           <span>Click on a quote to delete</span>
         </div>
-        <app-quote-grid :quotes="quotes"></app-quote-grid>
+        <app-quote-grid :quotes="quotes" @quoteDeleted="deleteQuote"></app-quote-grid>
       </div>
     </div>
   </div>
@@ -36,6 +36,9 @@ export default {
   methods: {
     newQuote(quote) {
       this.quotes.push(quote)
+    },
+    deleteQuote(index) {
+      this.quotes.splice(index, 1)
     }
   }
 }
